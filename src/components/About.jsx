@@ -7,7 +7,9 @@ import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 
+
 gsap.registerPlugin(ScrollTrigger);
+
 
 const useGsap = (elementRef, animation, delay = 0) => {
   useEffect(() => {
@@ -51,6 +53,7 @@ const ServiceCard = ({ index, title, icon }) => {
 const About = () => {
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
+  const buttonRef = useRef(null);
 
   // Heading Animation
   useGsap(headingRef, {
@@ -68,22 +71,31 @@ const About = () => {
     <>
       <div ref={headingRef}>
         <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <h2 className={styles.sectionHeadText}>About Me</h2>
       </div>
 
       <p ref={paragraphRef} className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]">
-        I'm a skilled software developer with experience in  JavaScript, and expertise in frameworks 
-        like React, Node.js, and Three.js. I'm a quick learner and collaborate closely with clients to create efficient, 
-        scalable, and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life!
+        Motivated computer science engineering student with great communication and critical thinking abilities. Successful
+at approaching and solving various problems with practical solutions. Team-oriented and ready to learn. Enthusiastic
+Student with superior skills in working in both team-based and independent capacities. Bringing strong work ethic
+and excellent organizational skills to any setting. Excited to bring above average user skills in information technology
+and social media.
       </p>
-
-      <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-10">
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
-        ))}
+      <div>
+        <div ref={buttonRef} className="mt-6">
+  <a
+    href="/resume.png" // Replace with your actual image filename
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-[#915EFF] text-white px-6 py-3 rounded-lg text-[16px] font-medium hover:bg-[#7a4de0] transition duration-300"
+  >
+    View Resume
+  </a>
+</div>
       </div>
+      
     </>
-  );
+  )
 };
 
 export default SectionWrapper(About, "about");

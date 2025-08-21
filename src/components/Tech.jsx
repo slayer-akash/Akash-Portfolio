@@ -15,10 +15,6 @@ const Tech = () => {
         y: 80
       },
       {
-
-
-
-        
         opacity: 1,
         y: 0,
         duration: 2.5,
@@ -35,10 +31,10 @@ const Tech = () => {
 
   return (
     <section>
-      <div className="tech-icons-wrapper flex flex-row flex-wrap justify-center gap-10">
+      <div className="tech-icons-wrapper flex flex-row flex-wrap justify-center gap-20">
         {technologies.map((technology) => (
           <div className="w-28 h-28" key={technology.name}>
-            <img
+           <img
               src={technology.icon}
               alt={technology.name}
               className="tech-icon w-full h-full object-contain"
